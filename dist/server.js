@@ -11,6 +11,9 @@ const app = (0, express_1.default)();
 const PORT = process.env.PORT;
 app.use(express_1.default.json());
 app.use("/products", product_routes_1.default);
+app.use((req, res) => {
+    res.status(404).send("Invalid Page");
+});
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
